@@ -26,3 +26,6 @@ function operator(num1, operator, num2){
     } else {return 'ERROR'}
 }
 
+/*Create the functions that update one of your number variables when 
+the calculator’s digit buttons are clicked. Your calculator’s display 
+should also update to reflect the value of that number variable.*/
