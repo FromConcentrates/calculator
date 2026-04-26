@@ -1,18 +1,26 @@
+
+let num2 = 0;
+
 const add = function(num1, num2) {
 	return num1 + num2
 };
-
 const subtract = function(num1, num2) {
 	return num1 - num2
 };
-
 const multiply = function(num1, num2) {
   return num1 * num2
 };
-
 const divide = function(num1, num2) {
     return num1 / num2
 }
+
+document.querySelectorAll('button').addEventListener('click', function() {
+        let num1 = element.textContent
+            
+        }
+    )
+console.log(num1);
+    
 
 function operator(num1, operator, num2){
     if (operator === '+') {
@@ -26,6 +34,53 @@ function operator(num1, operator, num2){
     } else {return 'ERROR'}
 }
 
-/*Create the functions that update one of your number variables when 
+let inputs = [];
+
+const numberButtons = document.querySelectorAll('.number');
+let number = "";
+
+numberButtons.forEach(button => {
+  button.addEventListener('click', (event)=> {
+   let text = event.target.textContent
+   number += text;
+  });
+});
+;
+
+let calcOperator = "";
+let number1 = 0;
+
+const operatorButtons = document.querySelectorAll('.operator');
+operatorButtons.forEach(button => {  
+  button.addEventListener('click', (event)=> {
+   calcOperator = event.target.textContent
+   number1 = Number(number);
+   number = "";
+   
+  });
+});
+
+let number2 = 0;
+const equalitySign = document.querySelectorAll('.equality');
+equalitySign.forEach(button => {  
+  button.addEventListener('click', (event)=> {
+  number2 = Number(number);
+   
+  });
+});
+
+let resultDisplay = operator(number1, calcOperator, number2);
+/*
+//display can be updated by textContent
+//display must be updated and inputs stored simultaneously
+//. I want javascript to listen for the click, store the textcontent of the button, then store that as a variable.
+
+To listen for clicks on 15 buttons and store their values into 3 separate variables 
+in JavaScript, you can use document.querySelectorAll() to select the buttons, 
+then loop through them to add an event listener that updates the variables based 
+on the button clicked. Each variable can store the values as needed, 
+depending on your specific logic for grouping the button values
+
+Create the functions that update one of your number variables when 
 the calculator’s digit buttons are clicked. Your calculator’s display 
 should also update to reflect the value of that number variable.*/
