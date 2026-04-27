@@ -49,8 +49,6 @@ numberButtons.forEach(button => {
 
 
 
-/*
-
 let calcOperator = "";
 let number1 = 0;
 
@@ -58,12 +56,15 @@ const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {  
   button.addEventListener('click', (event)=> {
    calcOperator = event.target.textContent
-   number1 = Number(number);
+   number1 = number;
    number = "";
+   displayText.textContent = `${number1} ${calcOperator}`;
    
   });
 });
 
+
+/*
 
 
 let number2 = 0;
