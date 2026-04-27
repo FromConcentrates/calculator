@@ -85,6 +85,17 @@ const equalitySign = document.querySelectorAll('#enter');
   });
 });
 
+const clear = document.querySelectorAll('#clear');
+clear.forEach(button => {
+    button.addEventListener('click', (event)=> {
+    number = '';
+    number1 = '';
+    number2 = '';
+    calcOperator = '';
+    displayText.textContent = '';
+    });
+});
+
 let resultDisplay = operator(number1, calcOperator, number2);
 /*
 //display can be updated by textContent
