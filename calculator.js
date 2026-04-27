@@ -50,7 +50,7 @@ numberButtons.forEach(button => {
 
 
 let calcOperator = "";
-let number1 = 0;
+let number1 = '';
 
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {  
@@ -64,17 +64,19 @@ operatorButtons.forEach(button => {
 });
 
 
-/*
 
+let number2 = '';
 
-let number2 = 0;
-const equalitySign = document.querySelectorAll('.equality');
-equalitySign.forEach(button => {  
+numberButtons.forEach(button => {  
   button.addEventListener('click', (event)=> {
-  number2 = Number(number);
-   
+    let text2 = event.target.textContent
+    number2 += text2;
+    number2 = Number(number);
+   displayText.textContent = `${number1} ${calcOperator} ${number2}`;
   });
 });
+
+const equalitySign = document.querySelectorAll('.equality');
 
 let resultDisplay = operator(number1, calcOperator, number2);
 /*
