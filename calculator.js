@@ -14,12 +14,7 @@ const divide = function(num1, num2) {
     return num1 / num2
 }
 
-document.querySelectorAll('button').addEventListener('click', function() {
-        let num1 = element.textContent
-            
-        }
-    )
-console.log(num1);
+
     
 
 function operator(num1, operator, num2){
@@ -34,18 +29,27 @@ function operator(num1, operator, num2){
     } else {return 'ERROR'}
 }
 
-let inputs = [];
-
+const displayText = document.getElementById('display');
 const numberButtons = document.querySelectorAll('.number');
 let number = "";
 
+/* A string of numbers is inputted by user 
+The string is stored in the number variable
+The string is converted into a number
+The number is display as text
+  */
 numberButtons.forEach(button => {
   button.addEventListener('click', (event)=> {
    let text = event.target.textContent
    number += text;
+   number = Number(number);
+   displayText.textContent = `${number}`;
   });
 });
-;
+
+
+
+/*
 
 let calcOperator = "";
 let number1 = 0;
@@ -59,6 +63,8 @@ operatorButtons.forEach(button => {
    
   });
 });
+
+
 
 let number2 = 0;
 const equalitySign = document.querySelectorAll('.equality');
