@@ -76,7 +76,14 @@ numberButtons.forEach(button => {
   });
 });
 
-const equalitySign = document.querySelectorAll('.equality');
+const equalitySign = document.querySelectorAll('#enter');
+
+  equalitySign.forEach(button => {  
+  button.addEventListener('click', (event)=> {
+   let equality = event.target.textContent;
+   displayText.textContent = `${number1} ${calcOperator} ${number2} ${equality}`;
+  });
+});
 
 let resultDisplay = operator(number1, calcOperator, number2);
 /*
