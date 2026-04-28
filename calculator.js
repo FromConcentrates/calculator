@@ -1,6 +1,4 @@
 
-let num2 = 0;
-
 const add = function(num1, num2) {
 	return num1 + num2
 };
@@ -18,13 +16,13 @@ const divide = function(num1, num2) {
     
 
 function operator(num1, operator, num2){
-    if (operator === '+') {
+    if (operator === 'plus') {
         return add(num1, num2);
-    } else if (operator === '-') {
+    } else if (operator === 'minus') {
         return subtract(num1, num2);
-    } else if (operator === '*') {
+    } else if (operator === 'times') {
         return multiply(num1, num2);
-    } else if (operator === '/') {
+    } else if (operator === 'over') {
         return divide(num1, num2);
     } else {return 'ERROR'}
 }
@@ -33,11 +31,7 @@ const displayText = document.getElementById('display');
 const numberButtons = document.querySelectorAll('.number');
 let number = "";
 
-/* A string of numbers is inputted by user 
-The string is stored in the number variable
-The string is converted into a number
-The number is display as text
-  */
+
 numberButtons.forEach(button => {
   button.addEventListener('click', (event)=> {
    let text = event.target.textContent
@@ -50,12 +44,14 @@ numberButtons.forEach(button => {
 
 
 let calcOperator = "";
+let calcOperand = '';
 let number1 = '';
 
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {  
   button.addEventListener('click', (event)=> {
-   calcOperator = event.target.textContent
+   calcOperator = event.target.textContent;
+   calcOperand = event.target.id;
    number1 = number;
    number = "";
    displayText.textContent = `${number1} ${calcOperator}`;
@@ -81,7 +77,9 @@ const equalitySign = document.querySelectorAll('#enter');
   equalitySign.forEach(button => {  
   button.addEventListener('click', (event)=> {
    let equality = event.target.textContent;
-   displayText.textContent = `${number1} ${calcOperator} ${number2} ${equality}`;
+   const result = operator(number1, calcOperand, number2);
+   displayText.textContent = `${number1} ${calcOperator} ${number2} ${equality} ${result}`;
+   console.log(operator(number1, calcOperand, number2));
   });
 });
 
@@ -96,7 +94,7 @@ clear.forEach(button => {
     });
 });
 
-let resultDisplay = operator(number1, calcOperator, number2);
+
 /*
 //display can be updated by textContent
 //display must be updated and inputs stored simultaneously
